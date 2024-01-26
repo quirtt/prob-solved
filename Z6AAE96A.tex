@@ -1,0 +1,30 @@
+desc: <++>
+hardness: <++>
+source: Sophie App 2022/5
+tags: [2022-03, <++>]
+
+---
+
+A line $l$ in the plane separates two given points $A$ and $B$ of the plane. On the line $l$,
+select points $P$ and $Q$ such that $\angle PAQ = 90^\circ$. 
+Show that there exists a point different from $B$ that lies on all circles drawn through $B,P,Q$ independently of the choice of $P$ and $Q$.
+
+---
+
+Define $O$ to be the feet of $A$ on the line $l$.
+Call inversion with radius $\overline{AO}$ followed by reflection wrt $O$ of $Z$  ``transformation of $Z$".
+Let $X$ be the transformation of $B$.
+
+Note that $\overline{OP} \cdot \overline{OQ} = \overline{OA}^2$ by similarity on the triangles $\triangle OPA, \triangle OQA$ (which also mean they switch under the transformation). 
+Also, $\overline{OX} \cdot \overline{OB} = \overline{OA}^2$ by definition of $X$.
+So, $P,X,Q,B$ are concyclic by PoP.
+
+---
+
+My motivation to considering the inversion followed by reflection was weird.
+Ofcourse I drew $O$ because of the edge case.
+I tried drawing $B$ close to $O$ just to realise that the fixed point goes 
+very far, I thought of inversion, then I tried drawing $B$ near $A$, I realised 
+the fixed point is about the reflection of $A$ wrt $O$. 
+So, I thought of inversion followed by reflection which worked out nicely because 
+even $P$ and $Q$ switch under that transformation.

@@ -1,0 +1,30 @@
+desc: <++>
+hardness: <++>
+source: Sophie INMO Mock 3/1
+tags: [2022-02, <++>]
+
+---
+
+Let $\mathcal{S}$ be a finite set of integers, each greater than $1$.
+Suppose that, for every positive integer $n$, there exists some $s \in
+\mathcal{S}$ such that $\gcd(s,n) = 1$ or $\gcd(s,n) = s$. Prove that
+there exist (not necessarily distinct) $s,t \in \mathcal{S}$ such that
+$\gcd(s,t)$ is prime.
+
+---
+
+Because $\mathcal{S}$ is finite there exists set of primes $\mathcal{P}
+= \{p_1, p_2, \dots, p_k\}$. Let $P = \prod_{p \in \mathcal{P}} p$. 
+
+Now we will proceed algorithmically. Set $n = p_1\cdots p_k$, you get $s_1 |
+p_1 \cdots p_k$. 
+
+Let $\sigma:[k] \to [k]$ be a permutation of the first
+$k$ numbers with properties defined later on. Let the index of 
+the smallest prime of $s_1$ be $\sigma(1)$. Set $n = P/p_{\sigma(1)}$ to
+get $s_2$,
+if the gcd is 1 then you just take $s = s_1$ and $t = s_2$ to finish. If
+not then you get $s_2 | P/p_{\sigma(1)}$. Define the following
+$\sigma(i)$'s accordingly. Setting $n =
+P/(p_{\sigma(1)} p_{\sigma(2)})$ you get $s_3$. Keep doing this, at any point
+if the gcd is one then you get $s_r | p_{\sigma(1)} \cdots p_{\sigma(r-1)}$

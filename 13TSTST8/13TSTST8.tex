@@ -1,0 +1,55 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{13TSTST8}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}\text{ }
+\begin{claim}
+	$2$ is a primitive root $\pmod{3^k}$
+\end{claim}
+\begin{proof}
+\raggedright
+	Assume $\text{ord}_{3^k}(2) = \alpha \leq 2 \cdot 3^{k-1}$. It is obvious that $\alpha$ has to be even.
+
+	Note that $v_3(2^{\alpha} - 1) = v_3(4^{\frac{\alpha}2}-1) = 1 + v_3(\alpha / 2) \geq k \ \implies \alpha \geq 2 \cdot 3^{k-1}$.
+
+	\bigskip
+	So, $\alpha = 2 \cdot 3^{k-1}$  
+\end{proof}
+\begin{claim}
+	$f(n)$ is periodic $\pmod{3^k}$ with period $3^k$
+\end{claim}
+\begin{proof}
+	We will induct, base case is trivial, assume the proposition is true for $n \leq N$. 
+	Now notice that the interval 
+	\begin{align*}
+	[a,a+3^{N+1}-1] &= [a, a+3^N-1] \cup [a+3^N, 2\cdot3^N-1] \cup [a+2\cdot3^N, a+3^{N+1}-1]\\
+	&= I_1 \cup I_2 \cup I_3\text{\hspace{7.8cm} (say)} 
+	\end{align*}
+	As, $I_1$ is a residual class mod $3^N$.
+\begin{align*}
+	f(a+3^{N}) - f(a) &= \sum_{i \in I_1}2^{f(i)} \equiv 2^{1} + 2^3 \cdots + 2^{2 \cdot 3^N - 1} \pmod{3^{N+1}}\\
+	&\equiv \frac23 \cdot (4^{3^N} - 1) \pmod{3^{N+1}}
+\end{align*}
+by virtue of ${\color{purple}\textbf{Claim 1.1}}$ and the fact that $f(i)$ is odd. Clearly this is analogous over $I_2, I_3$, and we get, 
+$$f(a+3^{N+1}) - f(a) \equiv 2(4^{3^{N}}-1) \equiv 0 \pmod{3^{N+1}}$$
+thanks to LTE.
+
+\raggedright
+
+To finish, just see that $f(a + 2 \cdot 3^{N}) \not\equiv f(a) \not\equiv f(a+3^N) \pmod{3^{N+1}}$.
+
+Thus, $f(a) \equiv f(b) \pmod{3^{N+1}} \iff 3^{N+1} | a-b$. Which finishes the problem.
+\end{proof}
+\end{soln}
+
+\end{document}

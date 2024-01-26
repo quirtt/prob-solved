@@ -1,0 +1,58 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{16SLC5}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+
+Sorry for the wording Evan, even though I know you wouldn't mind, couldn't resist myself $>$\_$<$.
+\begin{soln}
+	
+I claim the answer is $n-3$ when $n$ is odd and $n-2$ otherwise. 
+$n-3$ is quite easy to prove, just notice that there can be no
+intersecting diagonals, so the trivial triangulation is the best
+we can do. The construction for evens is to triangulate in order from a 
+vertex and then join the farthest 2 vertices. 
+
+
+\bigskip
+
+Now lets prove the statement for evens.
+Call any diagonal which intersects in the polygon 
+``\text{\color{red}hot}". If we have 2 intersecting
+\text{\color{red}hot} diagonals $m_1, m_2$, then clearly every other \text{\color{red}hot} diagonal
+is parallel to either $m_1$ or $m_2$.
+
+\begin{claim}
+	The longest {\color{red}hot} diagonal in an orientation cannot be a part of a \text{\color{red}hot} rectangle.
+\end{claim}
+\begin{proof}
+	If it were then, the arc \textit{not} in the region of the biggest \text{\color{red}hot} rectangle 
+	would have lesser no. of diagonals because we can always make a new \text{\color{red}hot} diagonal which
+	doesn't disturb the triangulation of the arc. 
+\end{proof}
+Assume there are $\gamma$ \text{\color{red}hot} diagonals.
+Now, notice that there are atmost $n - (\gamma+2)$ \text{\color{blue}virgin} vertices which don't touch a \text{\color{red}hot} diagonal.
+\begin{claim}
+	Each \text{\color{blue}virgin} vertex contribute atmost 1 diagonal.
+\end{claim}
+\begin{proof}
+	If there are $\geq 2$ \text{\color{blue}virgin} vertices in that \text{\color{blue}
+	virgin} arc then clearly a triangulation does the job.
+	There cannot be a single \text{\color{blue}virgin} vertex in any such arc because
+	if there was one it would mean the adjacent vertices are \text{\color{red}
+	hot-touching} but that would contradict $\color{green}\textbf{Claim 1.1}$.
+\end{proof}
+
+So we have atmost $\gamma + (n - (\gamma+2)) = n-2$ diagonals.
+\end{soln}
+
+\end{document}

@@ -1,0 +1,21 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{11SMTA7}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+  Define $Q(x) = P(2x) - P(x) - 1$, clearly $Q(1) = Q(2) = \cdots = Q(2^{2010}) = 0$, which are the only ones because 
+  $Q$ has degree $2011$.
+  $Q(x) = k \cdot (x - 1)(x - 2) \cdots (x - 2^{2010})$, comparing the constant term $k = \frac1{2^{1 + \cdots + 2010}}$.
+  So the coefficient of $x$ in $P$ is $2 - \frac1{2^{2010}}$
+\end{soln}
+\end{document}

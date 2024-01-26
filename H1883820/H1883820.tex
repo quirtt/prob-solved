@@ -1,0 +1,30 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{H1883820}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+  \raggedright
+  Let $P(x) = x^3 + a_2 x^2 + a_1 x + a_0$ be a polynomial which has roots $a,b,c$. 
+  $p_i = a^i + b^i + c^i$, so we have
+  \[ p_3 = -a_{2}^3 + 3a_{2}a_{1} - 3a_{0} \]
+  \[ p_5 = -a_{2}^5 + 5a_{2}^3 a_{1} - 5a_{2}^2 a_{0} - 5a_{1}^2a_{2} + 5a_{1}a_{0} \]
+  If $p_3 = p_1^3 = -a_2^3 \implies a_2 a_1 = a_0$, thus, 
+  \[ p_5 = -a_2^5 + 5(a_2^3a_1 -a_2^2a_0) - 5(a_1^2a_2 - a_1a_0) = -a_2^5 \]
+  On the other hand, if $p_5 = p_1^5 \implies a_1a_2(a_2^2 - a_1) = a_0(a_2^2 - a_1)$
+  
+  Thus, $a_1a_2 = a_0$ or $a_2^2 = a_1$, first case is trivial. For the second case, 
+  we have $(a+b+c)^2 = ab + bc + ca \implies a = -b, b = -c, c = -a \implies a = b = c = 0$, for
+  which the statement obviously holds true.
+\end{soln}
+
+\end{document}

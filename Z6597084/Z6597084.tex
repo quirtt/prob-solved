@@ -1,0 +1,40 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{Z6597084}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+  \raggedright
+  \[ Q(x) \stackrel{\text{def}}= P(x)P(x+1) - P(x^2 + x + 1) \] 
+  $Q$ is a polynomial and is $= 0$ for all reals, this means $Q(x) \equiv 0$. 
+  So, $P(x)P(x+1) = P(x^2 + x + 1) \ \forall \ x \in \CC$
+
+  Let $\alpha$ be a root of $P$, then clearly $\alpha^2 + \alpha + 1, \alpha^2 - \alpha + 1$ are also roots.
+  \begin{claim*}
+    Only possible root is $\pm i$. 
+  \end{claim*}
+  \begin{proof}
+    Assume FTSOC, there exists a root which is not $= \pm i$
+    We know $|x^2 -x + 1| = |-x^2 +x -1|$, so using triangle inequality, 
+    \[ |x^2 + x + 1| + |-x^2 + x -1| \geq 2|x| \]
+
+    Unless $|x^2 + x + 1| = |x^2 - x + 1| = |x|$, we run into problems. It is easy to see that this happens
+    only for $x = \pm i$. So, the only possible roots are $\pm i$.
+  \end{proof}
+  \hrule
+
+  \bigskip
+  Let $P = (x-i)^{a}(x+i)^{b}$ which always works. So, $\boxed{P = \{\{(x-i)^a(x+i)^b : a,b \geq 0\}, 0, 1\}}$ are the only solutions.
+  
+\end{soln}
+
+\end{document}

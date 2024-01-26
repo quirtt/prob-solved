@@ -1,0 +1,30 @@
+desc: Size in NT
+hardness: <++>
+source: USAMO 2015 5
+tags: [2022-02, <++>]
+
+---
+
+Let $a$, $b$, $c$, $d$, $e$ be distinct positive integers such that $a^4+b^4=c^4+d^4=e^5$. Show that $ac+bd$ is a composite number.
+
+---
+Assume $ac+bd = p$ a prime.
+Clearly $1 \leq a,b,c,d < p$ so $e < \sqrt[5]{2p^4} < p$
+as $p=2$ doesnt work.
+
+Now we will work $\pmod{p}$
+\begin{align*}
+  a^4 + b^4 \equiv c^4 + d^4 &\equiv e^5 \\ 
+  \equiv \left( \frac{p-bd}{c} \right)^4 + b^4 
+  &\equiv b^4 \cdot ((d c^{-1})^4 + 1) \\
+  \equiv b^4 e^5 c^{-4} &\equiv e^5
+\end{align*}
+Thus, $b^4 \equiv c^4 \pmod{p}$ and so $a^4 \equiv d^4 \pmod{p}$.
+
+Now note that if $a \equiv \pm d$ then either $a|ac+bd$ or $p|a(c-b)$ 
+both of which are bad. Therefore $a^2 \equiv -d^2$ and similarly $b^2 \equiv -c^2$
+
+
+$p^2 = (ac+bd) = a^2c^2 + b^2d^2 + 2abcd$
+
+Let $a^2c^2 = kp + b^2d^2$ then $p = k + 2bd = ac+bd \implies k + bd = ac \implies k^2 + b^2d^2 + 2kbd = a^2c^2 $

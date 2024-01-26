@@ -1,0 +1,25 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{21STEMSB2}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+  Let $\{p_1,\cdots,p_k\}$ be the set of first $k$ odd primes with $p_k < 10^{100} < p_{k+1}$. If $P(0) \neq 0$,
+  choose a big $n_0$, $P(2^{n_0}) = 2^{\nu_2(P(0))}\prod_ip_i^{\alpha_i}$
+  Note that $p_1^{\alpha_1} \mid\mid P(2^{n_0})$, now $p_1^{\alpha_1} \mid\mid P(2^{n_0 + \varphi(p_1^{\alpha_1+1})})$
+  because \[ a_k(2^{n_0 + \varphi(p_1^{\alpha_1+1})})^k \equiv a_k(2^{n_0})^k \cdot (2^{\varphi(p_1^{\alpha_1+1})})^k \equiv a_k (2^{n_0})^k \pmod{p_1^{\alpha_1+1}} \]
+  and $\varphi(p_1^{\alpha_1}) | \varphi(p_1^{\alpha_1 + 1})$. Therefore, 
+  \[ P(2^{n_0}) = P(2^{n_0 + \lambda\varphi(\prod_ip_i^{\alpha_i + 1})}). \]
+  This is not possible so $P(0) = 0$. Now, $Q(x) \overset{\text{def}}= \frac{P(x)}{x}$, if $Q(0) \neq 0$ we could derive the same contradiction,
+  continuing this way we see that $P(x) = x^n$ is the only solution.
+\end{soln}
+\end{document}

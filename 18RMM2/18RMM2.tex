@@ -1,0 +1,25 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{18RMM2}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+No. Assume yes, then $\deg P = 2.1 \deg Q$. Derivating the equation
+\[ P'(x)P(x)^8 \cdot (10P(x) + 9) = Q'(x)Q^{19}(x) \cdot (21Q(x) + 20) \]
+\[ 10P(x) + 9 \mid Q'(x)Q^{10}(x) \cdot (21Q(x) + 20) \]
+as $\deg P > \deg Q' + \deg Q = 2\cdot\deg Q-1$, we would be done if we show
+\[\gcd(10P(x) + 9, Q^{10}(x)) | \gcd(10P(x) + 9, Q(x)^{21} + Q(x)^{20}) \]
+\[= \gcd(10P(x)+9, P(x)^{10} + P(x)^9) = C,\]
+a constant by the euclidean algorithm. But this means there cannot exist
+such $P,Q$.
+\end{soln}
+\end{document}

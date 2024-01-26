@@ -1,0 +1,18 @@
+desc: Size in NT
+hardness: <++>
+source: Cyberspace Competition 2020 2
+tags: [2022-02, <++>]
+
+---
+
+Let $f(x) = 3x^2+1$. Prove that for any given positive integer $n$, the
+product
+\[f(1) \cdot f(2) \cdots f(n)\]
+has at most $n$ distinct prime divisors.
+
+---
+
+We would like to prove $f(n)$ introduces atmost 1 prime. Assume FTSOC
+it does two, let $p,q$ be them with $p,q | f(n)$ then $p|f(n-p)$ $p | f(p-n)$ and similarly for $q$. 
+Thus $n - p < 0 \implies p > n$ so, $p -n > n$. Similarly, $q > 2n$. 
+But $3n^2 +1 = \alpha p \cdot q > 4\alpha n^2$, a contradiction.

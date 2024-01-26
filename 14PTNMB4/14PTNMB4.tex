@@ -1,0 +1,36 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{14PTNMB4}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\newcommand{\sgn}{\operatorname{sgn}}
+\begin{soln}
+  Note that 
+  \[ P(x) = \sum_{k = 0}^{n} \frac{(2^n \cdot x)^k}{2^{k^2}} \]
+  Obviously, $P(x)$ can be replaced with $P(\frac{x}{2^n})$.
+\begin{claim*}
+  Consider the sequence $a_i = 2i, 0 \leq i \leq n$. Then, $\sgn(P(-2^{a_i})) = (-1)^i$. 
+\end{claim*}
+\begin{proof}
+  Notice that $|\pm 2^m| > |\sum_{k = 0}^{m-1} \pm 2^k|$, thus 
+  \[ \sgn(P(-2^{a_i})) = \sgn \left(\sum_{k=0}^{n} (-1)^k \cdot2^{k(a_i - k)} \right) = \sgn((-1)^k)\]
+  such that $k(a_i-k)$ is the biggest, this might not work when there are atleast two of the same terms
+  but this cannot happen because $a_i$ is even.
+  To finish note that $k(a_i - k) = k(2i - k)$ achieves maximum at $k = i$, so 
+  $\sgn(P(-2^{a_i})) = (-1)^i$
+\end{proof}
+\hrule
+\bigskip
+  Now by IVT $P$ has atleast $n$ real roots, so all roots of $P$ are real.
+\end{soln}
+\end{document}
+

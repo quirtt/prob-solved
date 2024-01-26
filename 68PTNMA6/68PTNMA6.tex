@@ -1,0 +1,21 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{68PTNMA6}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+Let the roots be $\lambda_1,\cdots, \lambda_n$, then $\sum_i \lambda_i^2 = a_{n-1}^2 - 2a_{n-2} = 3$
+  but also by AMGM $\prod_i \lambda_i^2 = 1 \implies \sum_i \lambda_i^2 \geq n \sqrt{\prod_i \lambda_i^2}$.
+  So, $n = \{3,2,1\}$. For $n = 3$, checking $\{x^3 \pm x^2 -x \pm 1\}$ we see that $P(x) = x^3 -x \pm(x^2 - 1)$ work.
+  $n = 2,1$ are easy. So the final set of solutions are $P(x) = \{x \pm 1, x^2 -1 \pm x, x^3 - x \pm(x^2 -1)\}$
+\end{soln}
+\end{document}

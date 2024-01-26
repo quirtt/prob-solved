@@ -1,0 +1,45 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{19INDTST2}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\raggedright
+\begin{soln}
+	With$\pmod{5}$ we get $a_1 \equiv \cdots \equiv a_{2018} \equiv \{0,-1\} \pmod{5}$.
+
+	\textbf{So firstly, assume} $a_1 \equiv 0 \pmod{5}$. Let $i_0$ be the index such that $\nu_5(a_{i_0}) = \displaystyle\max_{i \in \ZZ}\nu_5(a_i)$. 
+
+	Now notice that, 
+	\[ a_{i_0}^{2018} + a_{i_0+1} = 5^{k_{i_0}}, \]
+	we know $2018\cdot\nu_5(a_{i_0}) > \nu_5(a_{i_0 + 1})$, thus $k_{i_0} = \nu_5(a_{i_0+1})$, but because of size reasons this is a clear contradiction.
+
+	\textbf{Otherwise}, $a_1 \equiv \cdots \equiv a_{2018} \equiv -1 \pmod{5}$. Perform a change of variables $5b_i-1=a_i$. 
+	\begin{align*}
+		&\implies(5b_j-1)^{2018}+(5b_{j+1}-1) \\
+		&= (5b_{j}-1)^{2018}-1 + 5b_{j+1} \\
+		&= \lf{(5b_{j})^{2018} + \lf{\sum_{i=1}^{2016} \binom{2018}{i}(-1)^{i}(5b_{j})^{2018-i}} - 2018\cdot5b_j } + 5b_{j+1}
+	\end{align*}
+
+	If there exists any $j$ such that $\nu_5(5b_j) > \nu_5(5b_{j+1})$ then we are done because of size reasons. So, $\nu_5(5b_1) \leq \nu_5(5b_2) \leq \cdots \leq \nu_5(5b_{2018}) \leq \nu_5(5b_{1})$, which means all of them are equal, making another change of variables $5b_i = 5^\alpha \cdot c_i, \gcd(5,c_i)=1$
+
+	We get,
+	\begin{align*}
+	&\implies(5b_i-1)^{2018} + (5b_{i+1}-1)\\
+	&= \lf{(5^{\alpha}c_i)^{2018} + \lf{\sum_{j=1}^{2016} \binom{2018}{j}(-1)^{j}(5^{\alpha}c_{i})^{2018-j}} - 2018\cdot 5^{\alpha}c_j } + 5^{\alpha}c_{j+1} \\
+	&\equiv -2018 \cdot 5^{\alpha}c_j + 5^{\alpha}c_{j+1} \pmod{5^{\alpha+1}} \\
+	&\implies -2018 \cdot c_j + c_{j+1} \equiv 2 c_j + c_{j+1} \equiv 0 \pmod{5}
+	\end{align*}
+	as otherwise we are done because of size reasons. Thus, \[c_2 \equiv -2c_1, c_3 \equiv 4c_1, \cdots, c_{2018} \equiv (-2)^{2017}c_1 \implies c_1 \equiv 2^{2018}c_1 \pmod{5}.\] 
+	From which we get $5|c_1$, a contradiction.
+
+\end{soln}
+\end{document}

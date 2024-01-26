@@ -1,0 +1,26 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{13SMTA9}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+  \raggedright{}
+  \[ \dfrac{a^4}{(a-b)(a-c)} + \dfrac{b^4}{(b-a)(b-c)} + \dfrac{c^4}{(c-a)(c-b)} \]
+  \[ = \frac{-a^4(b-c) + -b^4(c-a) + -c^4(a-b)}{(a-b)(b-c)(c-a)} \]
+  \[ P(a,b,c) = -1 \cdot \left( a^4(b-c) + b^4(c-a) + c^4(a-b) \right), \text{which is clearly cyclic.} \]
+
+  Also, $P(a,a,c) = 0 \implies (a-b)(b-c)(c-a) \cdot Q(a,b,c) = P(a,b,c)$, where $Q$ is of degree 2
+  and cyclic. Thus, $Q = k(a^2 + b^2 + c^2) + l(ab+bc+ca)$, after some trivial checking we can conclude that
+  $k = l = 1$. So, the answer is $30$.
+\end{soln}
+
+\end{document}

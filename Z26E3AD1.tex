@@ -1,0 +1,30 @@
+desc: Real Polynomial
+hardness: <++>
+source: Sophie INMO Mock 2/3
+tags: [2022-02, <++>]
+
+---
+
+We are given a natural number $d$. Find all open intervals of maximum
+length $I \subseteq \RR$ such that for all real numbers $a_0, \cdots,
+a_{2d-1}$ inside interval $I$, we have the polynomial $P(x) = x^{2d}
++a_{2d-1}x^{2d-1} + \cdots + a_n$
+
+---
+
+Let the interval be $(m-\eps,n+\eps)$. It is easy to prove that the
+interval is positive. Then, making a transformation $(x \to -x)$ the most negative polynomial would be
+\[
+  P(x) = x^{2d} + (m - nx) \cdot \left( x^{2d-2} + \cdots+ x^2 + 1 \right)
+\]
+Clearly, this has to be positive for all $x$. So, 
+\begin{align*}
+  P(x) = x^{2d} + (m - nx) \cdot \left( x^{2d-2} + \cdots+ x^2 + 1 \right) > 0 \\
+  x = 1: 1 + (m-n) \cdot d > 0 \implies (n-m) < \frac1{d} \\
+  (x-1)n + (n-m) < (x^2 - 1) \cdot \frac{x^{2d}}{x^{2d} - 1} \\
+  (x-1)n < (x^2 -1) \cdot \frac{x^{2d}}{x^{2d} - 1} - \frac1d \\
+  n \operatorname{?} (x+1) \cdot \frac{x^{2d}}{x^{2d}-1} - \frac1{d(x-1)} 
+\end{align*}
+The limit of the expression at $x = 1$ is $\frac1d + 1$ so the only
+possible interval is $(1,1+\frac1d)$.
+

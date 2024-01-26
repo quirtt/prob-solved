@@ -1,0 +1,22 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{21CMIMCA5}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+Define $g(x) = f(x) + f(43 + x) + \cdots + f(46 \cdot 43 + x)$, $g(x+43) - g(x) 
+= f(2017 + x) - f(x)$, so we wanna find $g(43) - g(0)$. $g(x) = (-2)^x$ for $0 \leq x \leq 42$,
+which would be equivalent to 
+\[ (1-3)^x = \binom{x}{0} - \binom{x}{1}3^1 + \cdots + \binom{x}{42}3^{42} = g(x)\]
+now $g(43) = (-2)^{43} + \binom{43}{43}3^{43}$, thus the final answer is $3^{43}-2^{43}-1$.
+\end{soln}
+\end{document}

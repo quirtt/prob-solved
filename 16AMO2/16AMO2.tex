@@ -1,0 +1,30 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{16AMO2}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{prob}
+  Prove that for any positive integer $k$,
+  \[ f(k) = \displaystyle \left( k^2 \right)! \cdot \prod_{j = 0}^{k-1} \dfrac{j!}{(j+k)!} \]
+  is an integer.
+\end{prob}
+\begin{soln}
+  We would be done if we show $\nu_p (f(k)) \geq 0 \ \forall \ k \in \ZZ $. Choose a prime power $\lambda$. 
+  Note that $k^2 + \sum_{j=0}^{k-1} j = \sum_{j=0}^{k-1}(j+k)$. It suffices to show that, 
+  \[ \floor{\dfrac{k^2}{\lambda}} + \sum_{j=0}^{k-1} \floor{\dfrac{j!}{\lambda}} > \sum_{j=0}^{k-1}\floor{\dfrac{(j+k)!}{\lambda}} -1 \]
+  \[ \left\{ \dfrac{k^2}{\lambda} \right\} + \sum_{j=0}^{k-1} \left\{\dfrac{j!}{\lambda} \right\} < \sum_{j=0}^{k-1} \left\{ {\dfrac{(j+k)!}{\lambda}} \right\} +1\] 
+  \[ \left\{ \dfrac{k^2 \pmod{\lambda}}{\lambda} \right\} + \sum_{j=0}^{k-1} \left\{ \frac{j! \pmod{\lambda}}{\lambda}  \right\} < \sum_{j=0}^{k-1} \left\{ \frac{(j+k)! \pmod{\lambda}}{\lambda} \right\} +1 \]
+  which is obvious.
+  
+\end{soln}
+
+\end{document}

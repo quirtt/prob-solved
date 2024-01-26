@@ -1,0 +1,27 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{18BAMO4}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\raggedright
+\begin{soln}
+	
+Take a prime $p \mid abc$ and let $x = \nu_p(a)$,s
+$y = \nu_p(b)$, $z = \nu_p(c)$.
+It is enough to prove $x+y+z \equiv 0 \pmod{3}$.
+
+Notice that if $x=y=z$ we are done, so assume this is not true. Then $\nu_p(a/b) = x-y$, $\nu_p(b/c) = y-z$, $\nu_p(c/a) = z-x$. One of them have to be negative, which is not possible. But we have $\nu_p(a/b+b/c+c/a) \ge 0$, so we conclude that the two smallest numbers among $\{x-y, y-z, z-x\}$ must be equal.
+
+To finish WLOG assume that if $x-y = y-z$, then $2y = x+z$ and so $x+y+z \equiv 0 \pmod 3$.
+
+\end{soln}
+\end{document}

@@ -1,0 +1,28 @@
+desc: Size in NT
+hardness: <++>
+source: 2021 IberoAmerican 3
+tags: [2022-02, NT]
+
+---
+
+Let $a_1$, $a_2$, $a_3$, \ldots be a sequence of positive integers and let $b_1$, $b_2$, $b_3$, \dots be the sequence of real numbers given by \[ b_n = \dfrac{a_1a_2\cdots a_n}{a_1+a_2+\cdots + a_n},
+\ \mbox{for}\ n\geq 1. \]
+Show that, if there exists at least one term among every million consecutive terms of the sequence $b_1,b_2,b_3,\ldots$ that is an integer, then there exists some $k$ such that $b_k > 2021^{2021}$.
+
+---
+
+\renewcommand{\cal}{\mathcal}
+We will prove the following proposition
+\begin{proposition*}
+  Let $a = \{a_i\}_{i \geq 1}$ be a positive integer sequence and $b = \{b_i\}_{i \geq 1}$ be a real number sequence such that
+  \[b_n = \frac{a_1a_2\cdots a_n}{a_1 + a_2 + \cdots + a_n}, \text{ for } n \geq 1
+  \]
+  with atleast one term being an integer among every $N$ consecutive terms in sequence $b$ then $b$ is unbounded.
+\end{proposition*}
+  Assume not, let $b$ be upper bounded by $\cal{K}$. Call $i$ \textit{integral} if $b_i \in \ZZ$. Let $g_n$ be the $n^{\text{th}}$ integral number. Choose integral $i$ 
+  with $g_i > \cal{K}\cdot N^{10^N}$, which means $a_1 + \cdots + a_{g_i} > \cal{K} \cdot N^{10^N}$.
+  \[a_1 a_2 \cdots a_{g_i} \leq \cal{K} (a_1 + \cdots + a_{g_i})\]
+  Let $\Delta_i$ be the number of $m$ with $a_m = 1$ for $g_{i} < m \leq g_{i+1}$. As we can reorder the elements between the integral numbers to have numbers
+  in decreasing order, we see that $\Delta_i \geq (a_{g_{i}+1} - 1) \cdot \frac{a_1 \cdots a_{g_i}}{\cal{K}} - a_{g_i + 1}$. So, we would be done if we show
+  $a_{i'} > 1$ for some $i' \geq g_i+1$, but this is simple as if it is always $1$ then at some point $a_1 + \cdots + a_n > a_1 \cdots a_n$. Now, as $a_1 \cdots a_{g_k} \geq a_1 + \cdots + a_{g_k} > \cal{K} \cdot N^{10^N}$,
+  we are done.

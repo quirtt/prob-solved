@@ -1,0 +1,31 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{PROMYS5}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Thoughts, Ideas, Claims and Proofs}
+Denote $f(m,n)$ to be the answer for $m \text{x} n$ board.
+
+Confession: I am using geogebra to make grids
+
+Thought: $f(m, n) = \gcd(m,n) \cdot f(m/\gcd(m,n), n/\gcd(m,n))$
+
+Proof: Umm lets see. if it is a $g \cdot x \text{ x } g \cdot y$ board then 
+by similarity we can find $g$ $x \text{ x } y$ grids on the diagonal line with 
+the line intersecting both the corners. Thus, $f(gx, gy) = g \cdot f(x,y)$. 
+
+So we limit to thinking about $f(x,y)$ with $\gcd(x,y) = 1$. Now I am going to think
+about the $3 \text{ x } 5$ grid. Ok so, thinking about "when" there is a change in the 
+current "box" of the line by thinking about the $y$ coords
+as the $x$ coords change, 
+$$(0, \frac35, 1, \frac65, \frac95, 2,\frac{12}5, 3)$$
+
+\end{document}

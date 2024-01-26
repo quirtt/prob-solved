@@ -1,0 +1,45 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{19TSTST7}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+  \raggedright
+  Call $\lambda = \lcm(1,2,\dots,10^{100})$. Let $S = \{1,2,\dots,\lambda\}.$ 
+  \begin{claim*}
+    $f(x)$ is periodic. 
+  \end{claim*}
+  \begin{proof}
+    Set $y = x + \lambda$, we get 
+    \[ \gcd(f(x),f(y)) = \gcd(f(x),\lambda) = f(x) \implies f(x) | f(x + \lambda) \forall x \in \ZZ, \]
+    but now
+    setting $x = y + \lambda$, we get
+    \[ \gcd(f(y + \lambda),f(y)) = \gcd(f(y+\lambda),\lambda) = f(y+\lambda) \implies f(y+\lambda)|f(y) \forall y \in \ZZ\]
+    Therefore, $f(x) = f(x + \lambda) \forall x \in \ZZ$, which means it is periodic.
+  \end{proof}
+  
+  \hrule
+
+  \bigskip
+  Now to finish, fix a prime $p$, choose $x=x_p$ such that $\nu_p(f(x_p)) = \displaystyle\max_{x \in S}\nu_p(f(x))$
+  Therefore, 
+  \[ \nu_p(f(y)) = \nu_p(\gcd(f(x_p),f(y))) = \nu_p(\gcd(f(x_p),x_p-y))\]
+  
+  Notice that $y$'s of the form 
+  \[ y \equiv x_p \pmod{p^{\nu_p(f(x_p))}} \]
+  clearly have maximal $\nu_p$, so performing CRT on 
+  \[ y \equiv x_p \pmod{p^{\nu_p(f(x_p))}} \]
+  over all primes $p|\lcm(f(1),\dots,f(\lambda))$. Let $\alpha$ be a number that satisfies all those congruences.
+
+  Note that $f(x) = \gcd(f(\alpha),x-\alpha)$. Now, taking $m = -\alpha,n=f(\alpha)$. We are done.
+\end{soln}
+\end{document}

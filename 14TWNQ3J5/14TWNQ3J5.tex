@@ -1,0 +1,47 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{14TWNQ3J5}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+	
+One side is trivial, note that 
+$$\sum_{i\pmod{n}}\lf{\frac{x_{i-1}}{x_i} + \frac{x_i}{x_{i-1}}} \geq 2n$$
+by AM-GM.
+Now to prove the other side
+\begin{claim}
+	If $i$ is the index such that $x_i$ is the largest element in the sequence, then $x_i = x_{i-1} + x_{i+1}$ or it's a constant sequence.
+\end{claim}
+\begin{proof}
+	Assume $k_i = \frac{x_{i-1} + x_{i+1}}{x_i} \geq 2$.
+	Thus, $2x_i \leq x_{i-1} + x_{i+1} = k_i x_i$, but as $x_i$ is the maximum element, we have $x_{i-1} \leq x_i, x_{i+1} \leq x_i$. 
+	Then we have $x_{i-1} = x_i = x_{i+1}$ but then $x_{i-2}+x_{i} = k_{i-1}x_{i-1} \implies x_{i-2} = x_{i}$ as $x_{i-2} \in \ZZ^{+}$, continuing we get that the sequence is constant. 
+\end{proof}
+\begin{claim}
+	If we remove the largest element(any one if there are multiple largest elements) in a non constant \textit{good} sequence the resulting sequence is also \textit{good}.
+\end{claim}
+\begin{proof}
+	Let $i$ be the index of the largest element. 
+	So we have, 
+	$$ \frac{x_{i-2} + x_{i}}{x_{i-1}} \in \ZZ $$
+	$$ \frac{x_{i+2} + x_{i}}{x_{i+1}} \in \ZZ$$
+	We would be done if we show these hold:
+	$$\frac{x_{i-2} + x_{i+1}}{x_{i-1}} \in \ZZ
+	, \frac{x_{i+2}+x_{i-1}}{x_{i+1}} \in \ZZ$$
+	But it is easy to see that this is true using $x_i = x_{i-1} + x_{i+1}$.
+\end{proof}
+To finish notice that we eventually either get a constant sequence or a \textit{good} sequence with $3$ terms both of which work. So, we are done.
+\end{soln}
+\end{document}
+
+// x_{i-2} x_{i-1} x_{i} x_{i+1} x_{i+2}
+// x_{i-2} x_{i-1} x_{i+1} x_{i+2}

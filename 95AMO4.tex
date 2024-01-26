@@ -1,0 +1,31 @@
+desc: Size in NT
+hardness: <++>
+source: USAMO 1995 4
+tags: [2022-02, <++>]
+
+---
+
+Suppose $\, q_0, \, q_1, \, q_2, \ldots \; \,$ is an infinite sequence of integers satisfying the following two conditions:
+\begin{enumerate}[(i)]
+\item $\, m-n \,$ divides $\, q_m-q_n\,$ for $\, m > n \geq 0,$
+\item there is a polynomial $\, P \,$ such that $\, |q_n| < P(n) \,$ for all $\, n$
+\end{enumerate}
+Prove that there is a polynomial $\, Q \,$ such that $\, q_n= Q(n) \,$ for all $\, n$.
+
+---
+\newcommand{\lcm}{\operatorname{lcm}}
+Let $\deg P = d$. Interpolate the points $(i, q_i)$ for $0\leq i \leq d$, call this polynomial 
+  $Q$. I claim that $q_n = Q(n) \ \forall \ n$. Clearly, $Q(x) \in \QQ[x]$, let the denominator
+  be $M$. Scale the polynomials and the sequence by $M$. If we are able to prove $Q(n) = q_n$
+  in this scaled up version, we would be done. Here $Q \in \ZZ[X]$
+
+  \[  
+      n-c \mid Q(n) - Q(c) \]\[
+      n-c \mid q_n - q_{c} \]\[
+      n-c \mid Q(n) - q_n \ \forall \ 0 \leq c \leq d \]\[
+      L(n)=\lcm(n,n-1,...,n-d) \mid Q(n) - q_n
+  \]
+  Taking $n = kd!$, it is easy to prove that $L(n) \geq \frac1{C} \cdot n(n-1)\cdots (n-d) \sim n^{d+1}$,
+  whereas $Q(n) - q_n \sim n^d$. Therefore, $Q(n) = q_n$ for infinitely many
+  big $n$. Repeating the argument again, we would have $\lcm(\cdots) \to \infty$, therefore,
+  $Q(n) = q_n \ \forall \ n$.

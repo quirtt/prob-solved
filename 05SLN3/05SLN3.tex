@@ -1,0 +1,35 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{05SLN3}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{proof}
+Simple?
+\begin{claim*}
+  $((a,b,c),(d,e,f))$ works if and only 
+  if $((a+1,b+1,c+1),(d-1,e-1,f-1))$ does.
+\end{claim*}
+\begin{proof}
+  Because 
+  \[(a+1)(b+1)(c+1) + (d-1)(e-1)(f-1) = abc + def + ab + bc + ca - de - ef - fd \]
+  and
+  \[ (a+1)(b+1) + (b+1)(c+1) + (c+1)(a+1) - (d-1)(e-1) - (e-1)(f-1) - (f-1)(d-1)  \]
+  \[ = ab + bc + ca - de - ef - fd + 2(a+b+c+d+e+f) \]
+\end{proof}
+\hrule
+
+\bigskip
+  This implies that $S | (a+d)(b+d)(c+d)$ where $d = \min(d,e,f)$, assume $S$ 
+  is prime, $a+b+c+d+e+f = a+d$, which is absurd because positive integers.
+\end{proof}
+
+\end{document}

@@ -1,0 +1,56 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{18CHNTST12}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+I claim the only solutions are $k = p^{1009} \cdot C_1 \ \forall \ \text{
+prime }p \geq 3 \text{ or } 2^{1009} \cdot C_2$ with $C_2 \neq 1$
+
+\bigskip
+\raggedright
+{\color{purple}\textbf{Construction:}}
+For the first solution:
+we can take $a = p^{1008} (p-1), k = p^{1009}\cdot C_1$. This works 
+because 
+$$a + nk = p^{1008}((p-1)+npC_1)$$
+where $(p-1)+npC_1$ is never a square, as $p-1$ is a NQR mod $p\geq 3$.
+
+For the second solution: we can take $a = C_2 - 1$ if $C_2 \neq 2$ and $a = 3$ if $C_2 = 2$. This works as 
+  $$(C_2 - 1) + 2nC_2 \text{ and } (3 + 4n)$$ can never be a square.
+
+\bigskip
+{\color{purple}\textbf{Necessity:}}
+
+Let $g = \gcd(a,b)$
+
+$$a+nk = g(a' + nk') = C \cdot p_i^{1009 \cdot \alpha_i -1} p_j^{2\alpha_j-1}$$
+
+Note that by dirichlet $a' + nk'$ is a prime infinitely often, and is unbounded, this 
+means $g = \beta \cdot p^{1009 \cdot \alpha_i - 1}$ with $\gcd(\beta,p) = 1$
+
+Note that
+$$a' + nk' \not\equiv 0 \pmod{p} \implies k' \equiv 0 \pmod{p}$$
+Take $k'' = k'/p$. So we get $k = p^{1009\alpha_i} \beta k'' = p^{1009} F$ as $\beta k'' p^{1009(\alpha_i-1)}$ can take any value.
+
+\bigskip
+To finish we would have to prove $k = 2^{1009}$ doesnt work. We already have $a = 2^{1008} \beta$
+\begin{claim}
+	$\exists n$ such that $2^{1008}(\beta + 2n)$ is a square.
+\end{claim}
+\begin{proof}
+This is trivial, just take $n = \frac{d^2-\beta}{2}$ with large enough odd $d$.
+\end{proof}
+
+This finishes the proof.
+\end{soln}
+\end{document}

@@ -1,0 +1,28 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{/home/quirtt/Documents/OTIS/evan}
+
+\title{JLAMMY}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solutions}
+\begin{soln}
+\raggedright
+  I claim that 2026 is the actual lower limit.
+
+  \textbf{Construction}:
+  Consider the set $$A = \{-44,-43,...,45\}$$
+
+  It is easy to see that sum of elements of nonempty subsets of $A$ achieves all numbers $x : -990 \leq x \leq 1035$.
+
+  \textbf{Minimality}:
+
+  Note that there are atleast $\frac{m(m+1)}{2}$ different sums in $\{a_1,...,a_m\}$ with $0 < a_1 < a_2 < ... < a_m$ or the other way around. It is easy to see that if $0 \in A$ then we would have lower num of sums. So if there are $a$ positives and $b$ negatives in $A$ then $S \geq \frac{a(a+1)}{2} + \frac{b(b+1)}{2}$ and $a+b = 89$. Which achieves minimum at $2026$.
+\end{soln}
+\end{document}

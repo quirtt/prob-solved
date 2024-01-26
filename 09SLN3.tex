@@ -1,0 +1,19 @@
+desc: Size in NT
+hardness: <++>
+source: Shortlist 2009 N3
+tags: [2022-02, <++>]
+
+---
+
+Let $f$ be a non-constant function from the set of positive integers into the set of posisitve integer, 
+such that $a-b$ divides $f(a) - f(b)$ for all distinct positive integers $a,b$. Prove that there exist
+infinitely many primes $p$ such that $p$ divides $f(c)$ for some positive integer $c$.
+
+---
+
+Assume FTSOC that this is finite. Let $S = \{p_1,p_2,\cdots,p_k\}$ be the finite set of primes
+  and $P = p_1p_2 \cdots p_k$. Now if $f(a) = p_1^{\alpha_1} \cdots p_k^{\alpha_k}$ 
+  \[f(a) P \mid f(a + f(a) P) - f(a)\] analyzing $\nu_p \ \forall $ prime $p \in S$ we see that
+  $f(a + f(a)P) = f(a) \ \forall \ a$. Therefore, $f(a) = f(a + k\cdot f(a) P)$.
+  Take $k \to \infty$, $a+kf(a)P - b | f(a+kf(a)P) - f(b)$,
+  the size of the divisor increases without bound. This means $f$ is constant, but that is a contradiction.

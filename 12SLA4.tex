@@ -1,0 +1,58 @@
+desc: Analysis
+hardness: <++>
+source: Shortlist 2012 A4
+tags: [2022-05, Analysis]
+
+---
+
+Let $f$ and $g$ be two nonzero polynomials with integer coefficients and $\deg f>\deg g$.  Suppose that for infinitely many primes $p$ the polynomial $pf+g$ has a rational root. Prove that $f$ has a rational root.
+
+---
+
+Let $p = \frac{-g}{f}$, since $\deg f > \deg g$ there exists 
+an interval $I = [A,B]$ such that $|f| \geq
+|g|$ in $\RR \setminus I$. Now, because $g,f$ are continuous functions
+then so is $\frac{-g}{f}$, but as $\frac{-g}{f} \to \infty \ x \in I$
+there exists some sequence $\{\frac{r_i}{s_i}\} \to L$ with $f(L) \to 0$, and which
+corresponds to some sequence of primes $\{p_i\} \to \infty$. Henceforth,
+only care about this sequence.
+
+If the
+leading coefficient of $pf$ is $pa_n$, and let the constant coefficient of
+$pf+g$ be $pa_0 + b_0$, then by the rational root theorem
+\[
+  r_i \mid pa_0 + b_0, s_i \mid pa_n
+\]
+\begin{claim*}
+  $p \mid s_i \ \forall \ i \geq N$ for some $N$.
+\end{claim*}
+\begin{proof}
+  If not then $s_i \leq a_n$, then $\frac{r_i}{s_i} \geq
+  \frac{r_i}{a_n}$ which eventually gets big because two elements of
+  this sequence cannot be the same.
+\end{proof}
+\hrule
+
+\bigskip
+Forget about the first $N$ terms. Let $s_i = ps'_i$, if there are infinitely many terms $r_i$ such that it is slower
+than $\mathcal{O}(p)$ then the sequence goes to $0$, which is rational
+so we would be done. Otherwise there are only finitely many terms are anomalies, remove them, $r_i = \mathcal{O}(p)$, let
+$C_1 \cdot (pa_0+b_0)\leq r_i \leq
+C_2 \cdot (pa_0 + b_0)$. Let $C_i = (pa_0+b_0)/r_i$ 
+\[
+  \frac{pa_0 + b_0}{ C_i p s'_i} = \frac{a_0 + \frac{b_0}{p}}{C_is'_i}
+\]
+now because $C_i s'_i$ has only finitely many values to take thus by PHP there exists
+infinitely many terms in the sequence which have the same denominator, let this be $\alpha$.
+But since all subsequences of the converging sequence $\frac{r_i}{s_i}$ converge to $L$,
+$L$ must have to be
+\[L = \frac{a_0}{\alpha}\]
+which is a rational number and so we are done.
+
+Note that the sequence $\frac{r_i}{p_ia_0 + b_0}$ is underbounded by 0. This means 
+there is an infinum of this sequence. If this infinum is positive then $r_i = O(p)$,
+otherwise it is 0, which means there exists a subsequence $\{\frac{r_{N_i}}{p_{N_i}a_0 + b_0}\}_{i \geq 1} \to 0$.
+\[
+  \frac{\frac{r_{N_i}}{a_0 p_{N_i} + b_0}}{s'_{N_i}}\leq \frac{r_{N_i}}{p_{N_i}s'_{N_i}} \leq (a_0+1)\frac{\frac{r_{N_i}}{a_0p_{N_i} + b_0}}{s'_{N_i}}
+\]
+which means the rational root sequence also goes to 0.

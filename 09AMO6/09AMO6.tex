@@ -1,0 +1,37 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{09AMO6}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\raggedright
+\begin{soln}
+	Notice that displacing all of the terms in both the sequences by $k$ doesnt change the statement. Let the sequences be $\{s_1,s_2,...\}, \{t_1,t_2,...\}$ displacing by $-s_1$ and $-t_1$ we get that the sequences become $\{0,s_2-s_1,...\}, \{0,t_2-t_1,...\}$. 
+	Rename these to $\{0,s_1,...\}, \{0,t_1,...\}. 
+
+	Define $s_i = \dfrac{a_i}{b_i}, t_j = \dfrac{c_j}{d_j}$ where $a_i,b_i,c_j,d_j \in \ZZ$ and $\gcd(a_i,b_i) = \gcd(c_j,d_j) = 1$
+	So the condition becomes, 
+	\[ s_i t_j \in \ZZ \ \forall \ i,j \in \ZZ^{+} \]
+	and we have to show that $\exists \dfrac{m}{n} \in \QQ$ such that 
+	\[ \dfrac{ma_i}{nb_i},\dfrac{nc_j}{md_j} \in \ZZ \ \forall \ i,j \in \ZZ^{+}\]
+
+	Choose a large enough $N$, now using the previous conditions, we have the following conclusions $ \forall \ i,j \in [N]$ and $\forall$ prime $p$. 
+	\begin{itemize}
+		\item $\displaystyle\min_{i \leq N}(\nu_p(a_i)) \geq \displaystyle\max_{i \leq N}(\nu_p(d_i))$
+		\item $\displaystyle\min_{i \leq N}(\nu_p(c_i)) \geq \displaystyle\max_{i \leq N}(\nu_p(b_i))$
+	\end{itemize}
+	Choose $m_p,n_p \in \ZZ_{ \geq 0}$, such that
+	\[ \nu_p(c_j) \geq \boxed{\min_{i \leq N}(\nu_p(c_i)) \geq m_p \geq \max_{i \leq N}(\nu_p(b_i))} \geq \nu_p(b_i) \]
+	\[ \nu_p(a_i)\geq \boxed{\min_{i \leq N}(\nu_p(a_i)) \geq n_p \geq \max_{i \leq N}(\nu_p(d_i))} \geq \nu_p(d_j) \]
+	it is easy to see that such $m_p,n_p$ exist. Repeat the same operation for all primes $p$. And choose $r = \displaystyle\prod_{\text{prime }p}p^{m_p - n_p}$.
+	Now, taking $N \to \infty$, we are done.
+\end{soln}
+\end{document}

@@ -1,0 +1,26 @@
+desc: Roots of Unity Filter
+hardness: <++>
+source: Nonempty subsets with sum divisible by 3
+tags: [2022-02, <++>]
+
+---
+
+How many nonempty subsets of $K = \{1, 2, \dots, 1000\}$ have sum divisible by
+$3$?
+---
+We can capture the sum modulo $3$ of a subset $S$ by 
+\[
+  g(S) = \prod_{i \leq 1000} \omega^{i \cdot f_S(i)}
+\]
+where $f_S(i) = \begin{cases}
+  1 \text{ if } i \in S \\
+  0 \text{ otherwise}
+\end{cases}$.
+Now notice that $g(S) = 1 \iff$ it is the subset we want. So now we wanna calculate 
+\[
+  \operatorname{Re} \left( \sum_{S \subseteq K} \omega^{i \cdot f_S(i)} -1  \right)
+\]
+\[
+  = \operatorname{Re} \left((1+\omega)\cdots(1+ \omega^{1000}) - 1 \right)
+  = 2^{333} - 1
+\]

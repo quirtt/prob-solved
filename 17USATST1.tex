@@ -1,0 +1,24 @@
+desc: local
+hardness: <++>
+source: USATST 2017 1
+tags: [2022-04, <++>]
+
+---
+
+In a sports league, each team uses a set of at most $t$ signature colors. A set $S$ of teams is\textit{ color-identifiable} if one can assign each team in $S$ one of their signature colors, such that no team in $S$ is assigned any signature color of a different team in $S$. \\\\
+For all positive integers $n$ and $t$, determine the maximum integer $g(n, t)$ such that: In any sports league with exactly $n$ distinct colors present over all teams, one can always find a color-identifiable set of size at least $g(n, t)$.
+
+---
+
+I claim that the answer is $\lceil\frac{n}{t}\rceil$. 
+Let $s_t$ be the signature set of team $t$. 
+
+Notice that we can remove any team $t_i$ for which there exists a team
+$t_j$ with $s_{t_i} \subseteq s_{t_j}$. Now,
+consider the largest color-identifiable set $S$, clearly,
+if there exists a color $c$ with $c \in s_i, s_j \in S$,
+then we can delete $c$ from $s_i,s_j$.
+
+So now we are left with $n$ colors distributed over $t$ places,
+which means $|S| \geq \lceil\frac{n}{t}\rceil$. The construction 
+is simple.

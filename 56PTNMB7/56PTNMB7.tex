@@ -1,0 +1,24 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{56PTNMB7}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+  Let $S_1,S_2$ be the sets of roots of $P, P+1$. If a root has multiplicity $m$ then $P'$ has $m-1$.
+  This means, 
+  \[ (\deg(P) - |S_1|) + (\deg(P+1) - |S_2|) \leq \deg(P') \]
+  \[ \deg(P) + 1 \leq  |S_1| + |S_2| \]
+  \[\deg(Q) + 1 \leq |S_1| + |S_2|\]
+  Now, $\max(\deg(P),\deg(Q)) \geq \deg(P-Q) \geq |S_1| + |S_2| \geq \max(\deg(P),\deg(Q)) + 1$, which is not possible unless $P=Q$.
+\end{soln}
+
+\end{document}

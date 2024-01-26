@@ -1,0 +1,40 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{97IMO5}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\newcommand\rad
+{\operatorname{rad}}
+\begin{soln}
+  Firstly notice that $\rad(a) = \rad(b)$, this is quite easy to prove.
+  \begin{claim*}
+    $b^3 | a$
+  \end{claim*}
+  \begin{proof}
+    Assume $a < b$, this leads to a clear contradiction. So $a \geq b$. For 
+    $a = b$ we easily get $a = b =1$. Now assume $a > b$, 
+    \[ a^{b^2} = b^a < a^a \implies a > b^2\]
+    \[ a^{b^2} = b^a = (b^2)^{\frac{a}{2}} < a^{\frac{a}2} \implies a > 2b^2 \]
+    \[ \frac{\nu_p(a)}{\nu_p(b)} = \frac{a}{b^2} > 2 \]
+    Thus, $b^2 | a$, but using this in the previous equation again we would have 
+    \[ \frac{\nu_p(a)}{\nu_p(b)} = \frac{a}{b^2} \geq 3 \]
+    So, $b^3 | a$.
+  \end{proof}
+  \hrule
+
+  \bigskip
+  Set $a = kb^3$. The original equation reduces to $k = b^{bk - 3}$. To finish,
+  \[ k = b^{bk - 3} = b^{b^{bk - 2} - 3} = b^{b^{b^{bk - 2} - 2} -3} \]
+  If $bk - 2 \geq 3$ then the size of the RHS increases unboundedly. Thus, $bk = \{1,2,3,4\}$
+  Checking these we get $(a,b) \in (1,1),(16,2),(27,3)$ are the only solutions.
+\end{soln} 
+\end{document}

@@ -1,0 +1,19 @@
+desc: Local
+hardness: <++>
+source: GRTH 3
+tags: [2022-04, <++>]
+
+---
+
+Let $G$ be a finite simple graph.
+Show that one can partition the vertices into two groups such that
+for each vertex, at least half the neighbors are in the other group.
+
+---
+
+Consider any random partition. Now choose a vertex $v$
+which has $x_v,y_v$ neightbors in the same and different group respectively,
+with $x_v > y_v$, and send it to the other group, this increases the sum
+$\sum_{\nu \in G} (y_\nu)$ by $2(x_v - y_v)$ because
+vertices in the same and different groups add and subtract $1$
+respectively. This is a monovariant, we are done.

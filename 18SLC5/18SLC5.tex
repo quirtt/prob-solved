@@ -1,0 +1,71 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{18SLC5}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+Never expected to solve this. Could'nt. Nice problem, however.
+
+The required minimum is $k(4k^2+k-1)/2$.
+\bigskip
+
+\textbf{Construction:}
+We denote the players $P_1$, \dots, $P_k$
+and $Q_1$, \dots, $Q_k$ in general.
+In the first $\binom k2$ days,
+the players $P_1$, \dots, $P_k$ arrive in order,
+and when each player arrives they play everyone else.
+The last $\binom k2$ are done in a symmetric way.
+In the middle $k^2$ days we have two phases.
+First $Q_1$, \dots, $Q_k$ arrive in order;
+when $Q_i$ arrives they immediately play $P_1$, \dots, $P_{k+1-i}$.
+Then $P_1$, \dots, $P_k$ depart in order;
+before $P_i$ departs they play the rest of their matches.
+
+\bigskip
+
+\textbf{Minimality:}
+Let us denote the arrival and departure dates by
+$$1 = a_1 \geq a_2 \cdots \geq a_{2k} \text{ and } \binom{2k}{2} = b_1 \geq b_2 \geq \cdots \geq b_{2k}$$
+
+Clearly, the total cost is 
+\[ S = \sum_n \left( b_n - a_n + 1 \right). \]
+
+\begin{claim*}
+	$a_n - 1 \le \binom{n-1}{2}$
+	and $\binom{2k}{2} - b_n \le \binom{n-1}{2}$
+	for $n = 1 , 2, \dots, k$.
+\end{claim*}
+\begin{proof}
+	Quite obvious, just notice that before $n$ arrives we have at most $n-1$ players. 2nd bound can be derived similarly.
+\end{proof}
+
+\begin{claim*}
+	For $n > k$ we have
+	\[ (a_n - 1) + \left( \binom{2k}{2} - b_n \right)
+	\le 2 \binom{n-1}{2} - \binom{2(n-1)-2k}{2} \]
+\end{claim*}
+\begin{proof}
+	The idea of this proof is similar to the previous one.
+
+	However, when $n > k$
+	we double-count certain games.
+	Specifically, there are $n-1$ players
+	that arrive before $a_n$
+	and $n-1$ players who depart after $b_n$.
+	Therefore, there are at least $2(n-1)-2k$ players' games overcounted.
+	This gives us the $\displaymath\binom{2(n-1)-2k}{2}$ term above.
+\end{proof}
+
+To finish, note that 
+$$S = \sum_{n=1}^{2k}(b_n-a_n+1) \geq \sum_{n=1}^{2k} \lf{\binom{2k}{2}} - 2 \binom{n-1}{2}} + \sum_{n=k+2}^{2k}\binom{2(n-1)-2k}{2}$$
+$$= \frac12 k(4k^2+k-1)$$
+\end{document}

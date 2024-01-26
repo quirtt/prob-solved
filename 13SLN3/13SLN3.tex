@@ -1,0 +1,40 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{13SLN3}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+\raggedright
+Let $f(n)=n^2 + n + 1$ and $P(n) = \text{max prime of } n$. 
+
+Note that $f(n^2) = n^4+n^2+1 = f(n)f(n-1), f((n+1)^2) = f(n+1)f(n)$.
+
+We have $$f(n)|\gcd(f(n^2),f((n+1)^2))$$
+
+So we would be done if we prove that
+\begin{claim}
+	There exist infinitely many $n$ such that $$P(f(n-1)) \leq P(f(n)) \geq P(f(n+1))$$
+}
+\end{claim}
+\begin{proof}
+	Assume for the sake of contradiction that there are only finitely many $n$ that satisfy this.
+
+	So, $\exists N$ such that $\{P(f(n))\}_{n\geq N}$ is monotonic.
+
+	Now clearly if this were decreasing we would get a contradiction, so, assume $\{P(f(n))\}_{n\geq N}$ is strictly increasing. 
+
+	\newline
+
+	But we already know, $$P(f(n^2)) = \max(P(f(n)),P(f(n-1)))$$ so it cannot be strictly increasing and we are done. 
+\end{proof}
+\end{soln}
+\end{document}

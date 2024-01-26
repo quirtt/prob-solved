@@ -1,0 +1,30 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{12SLC2}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+	I claim the answer is $\floor{\frac{2n-1}{5}}$.
+	\raggedright
+
+	\textbf{Maximality}:
+		Call $f(n)$ the maximum number of possible disjoin pairs.
+		Double counting on the sum of elements of pairs and bounding gives
+		$$\frac{n\cdot(n+1)}2 - \frac{(n-f(n))(n-f(n)+1)}2 - \frac{(4f(n)(f(n)+1)}2 -f(n)) \geq 0$$
+		$$\implies f(n) \leq \floor{\frac{2n-1}5}$$
+	\textbf{Construction}:
+		For $n = 5q + 3$, consider the following pairs
+		$$( 4q+2,1),(4q+3,3) \cdots (3q+2,2q+1) \text{ and } (3q+1,2)\cdots (2q+2,2q)$$.
+
+		This clearly also works for $5m+4,5m+5, 5m+6,5m+7$. So we are done.
+\end{soln}
+\end{document}

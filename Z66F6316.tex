@@ -1,0 +1,21 @@
+desc: <++>
+hardness: <++>
+source: Sophie App 2022/2
+tags: [2022-03, <++>]
+
+---
+
+There is an empty $19 \times 19$ grid. Two players, Alice and Bob take turns in writing $0$ or $1$ respectively in the cells of the grid (Alice writes $0$ and Bob writes $1$). When all cells are filled in, they calculate the sum of each row, and the sum of each column. Let the largest row sum be $A$, and the largest column sum be $B$. If $A > B$ then Alice wins the game. Bob wins if $B > A$, and it is a draw if $A=B$. Does either player have a winning strategy?
+
+---
+
+No. We will show that it is always possible to force a draw.
+Consider the following strategies:
+\begin{itemize}
+    \item \textbf{Alice}: Keep putting 0s in the same column as the last 1, put a 0 anywhere randomly if the first turn is yours 
+      or if the column with the last 1 is filled. This means a column can only have 10 1s max. But by pigeon hole on the rows 
+      $A \geq  \frac{181}{19} \implies A = 10$. So, it is either a draw or a win for Alice.
+    \item \textbf{Bob}: Keep putting 1s in the same rows as the last 0, put a 1 anywhere randomly if the first or if the column 
+      with the last 1 is filled. This means a row can only have 10 1s max. Again, by pigeon hole this is either a draw or a win for Bob.
+\end{itemize}
+So playing ideally the game is always drawn.

@@ -1,0 +1,46 @@
+desc: FE
+hardness: <++>
+author: Bruno Le Froch
+source: Shortlist 2009 A3 | IMO 2009 5
+tags: [2022-04, <++>]
+
+---
+
+Determine all functions $ f$ from the set of positive integers to the set of positive integers such that, for all positive integers $ a$ and $ b$, there exists a non-degenerate triangle with sides of lengths
+\[ a, f(b) \text{ and } f(b + f(a) - 1). \]
+(A triangle is non-degenerate if its vertices are not collinear.) \\\\
+\textit{Proposed by Bruno Le Floch, France}
+
+---
+
+\begin{claim*}
+  $f(1) = 1$ and $f(f(a)) = a$
+\end{claim*}
+\begin{proof}
+  Assume not, $a = 1$ then $f(b) + 1 > f(b+f(a)-1) > f(b)-1$, therefore
+  $f(b+f(1)-1) = f(b)$. Set $p = f(1) - 1$. Now taking $a \to a + kp$ 
+  for large $k$ gives a contradiction.  
+
+  Set $b=1$ we get $f(f(a)) =a$, which means $f$ is bijective.
+\end{proof}
+\hrule
+\begin{claim*}
+  $f(a) = a$
+\end{claim*}
+\begin{proof}
+  Put $a = f(a), b = f(2)$ to get 
+  \[f(a) - 1 \leq f(a + f(2) - 1) \leq f(a) + 1\].
+  Say, $f(a) - 1 = f(a + f(2) - 1)$ then $f(a + 2(f(2)-1)) = f(a + f(2) - 1)-1 = f(a) - 2$,
+  
+  which means $f(a + k(f(2) - 1)) = f(a) - k$ which is not possible.
+
+  So, $f(a + (f(2) - 1)) = f(a) + 1 \ \forall \ a$. Thus,
+  $f(1 + (f(2) - 1)^2) = f(2)$, which means 
+  \[1 + (f(2) - 1)^2 = 2,\] so, $f(2)=2$.
+
+  To finish, we can easily induct on $n$ in $f(n) = n$. 
+\end{proof}
+\hrule
+
+\bigskip
+\bigskip

@@ -1,0 +1,27 @@
+desc: <++>
+hardness: <++>
+source: Sophie App 2022/6
+tags: [2022-03, <++>]
+
+---
+
+Prove that for every given positive integer $k$, there exist infinitely 
+many $n$, such that $2^n + 3^n - 1, 2^n + 3^n -2, \dots, 2^n + 3^n - k$ are all composite numbers.
+
+---
+
+Denote the set by $S(k,n)$ we wanna show that this set doesn't have a prime for infinitely many $n$.
+
+Choose $\beta$ such that $2^\beta + 3^\beta - k > 3$.
+Take $n > \beta$ such that $S(k,n)$ contains a prime.
+Let $p_i$ denote any prime $\neq 2,3$ dividing $2^n + 3^n - i$
+
+for $1 \leq i \leq k$. Now consider the set $S(k,n+2M\varphi(\prod p_i)) \ M \geq 1$.
+
+Note that if $p_i$ exists then $$p_i | 2^{n+2M\varphi(\prod p_j)} + 3^{n+2M\varphi(\prod p_j)} - i$$ as 
+$$2^{n+2M\varphi(p_i) \cdot \varphi(\prod_{j \neq i} p_j)} \equiv 2^n \pmod{p_i}$$ similarly for $3$.
+
+If $p_i$ doesnt exist, and $2^n + 3^n - i$ is even then $2|2^{n+\alpha} + 3^{n+\alpha} -i$ is true for all alpha
+and if its odd then $2^{n + 2\alpha} + 3^{n + 2\alpha} - i \equiv 2^n + 3^n - i \pmod{3}$
+
+Thus the set $S(k+n+2M\varphi(\prod p_i))$ works for all $M$. 

@@ -1,0 +1,38 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{04RUS113}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+Let $\deg Q = m, \deg P = n$, and let $\zeta_k$ be a $k$th root of unity.
+\begin{claim*}
+$m \mid n$
+\end{claim*}
+\begin{proof}
+  Let $R \in \RR[x,y]$ such that
+  \[ (Q(x) - Q(y))\cdot R(x,y) = P(x) - P(y) \]
+  Clearly, $\deg(R) = n - m$. Setting $x = \zeta_m x, y = x$,
+  \[ (Q(\zeta_m x) - Q(x))R(\zeta_m x,x) = P(\zeta_mx) - P(x)\]
+  As $\deg (Q(\zeta_m x) - Q(x)) \leq m-1 \implies \deg(P(\zeta_mx) - P(x)) \leq n-1$.
+  Therefore, $x^n(\zeta_m^n - 1) = 0 \ \forall \ x \in \CC$. So $m \mid n$.
+   
+\end{proof}
+\hrule
+
+\bigskip
+To finish, WLOG assume leading coeffs of $P,Q$ are $1$, now we will induct on the degree, base case is clear. 
+  \[ Q(x) - Q(y) \mid (P(x) - Q(x)) - (P(y) - Q(y)),\] 
+  which has degree $n - m$. By hypothesis, $P(x) - Q(x) = S_1(Q(x))$. 
+  Now, taking $S(x) = S_1(x) + x$, we would have $P(x) = S(Q(x))$.
+\end{soln}
+\end{document}
+

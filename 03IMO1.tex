@@ -1,0 +1,27 @@
+desc: Local
+hardness: <++>
+source: IMO 2003/1
+tags: [2022-03, <++>]
+
+---
+
+Let $A$ be a $101$-element subset of $S=\{1,2,\ldots,10^6\}$.
+Prove that there exist numbers $t_1$, $t_2, \ldots, t_{100}$
+in $S$ such that the sets
+\[ A_j=\{x+t_j\mid x\in A\},\qquad j=1,2,\ldots,100  \]
+are pairwise disjoint.
+
+---
+
+Let $A=\{a_1, \cdots, a_{101}\}$
+
+Use the algo: Start with a random $T$ remove all $t \in T$ that cause
+problems. Now say you have $\{t_1,\cdots,t_k\}$. Now you have to find a
+new $t_{k+1} \in S$ that maintains the disjoint condition. 
+
+Say at any point the algorithm stops. This means you choosing any
+$t_{k+1}$ forces one of
+$\{a_1+t_1,\cdots,a_1+t_k,\cdots,a_{101}+t_{k}\}$
+But notice that $a_i + t_m = a_j + t_{k+1}$ has atmost $100$
+possibilities. This means there are atleast $10^6-k - 100 \cdot 101k= 10^6 -
+k(10101)$ $t_{k+1}$ that work. Which is positive for all $1\leq k \leq 99$, a contradiction.

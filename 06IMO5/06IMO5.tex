@@ -1,0 +1,59 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{06IMO5}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+Huh. Very nice.
+\begin{lemma*}
+  For any $P \in \ZZ[X]$, and $m \in \ZZ$ with 
+  $P^k(m) = m \implies k \in \{1,2\}$ 
+\end{lemma*}
+\begin{proof}
+  \[ m - P(m) | P(m) - P(P(m)) | \cdots | P^{k-1}(m) - m | m - P(m)\]
+  So, $\dfrac{P^{i+1}(m) - P^i(m)}{P^i(m) - P^{i-1}(m)} = \{-1,1\} \forall i$, if this
+  equals $-1$ atleast once then, 
+  \[P^{c}(m) = P^{c-2}(m) \implies P(P(m)) = P^{gk+2}(m) = P^{gk}(m) = m\]
+  So $P^{k}(m) - P^{k-1}(m) = P^{k-1}(m) - P^{k-2}(m) = \cdots = P(m) - m$, which means
+  $m = P^k(m) = m+k(P(m) - m)$, so we are done.
+\end{proof}
+  Using this lemma we reduce the problem to $k = 2$. 
+  Define $\#_{\ZZ}(P(x))$ to be the number of distinct
+  integer roots of $P(x)$. Let $S_1 = \{a_i\}_{i \leq k_1}$ be the set of integers with
+  cyclicity 1 and $S_2 = \{b_i\}_{i \leq k_2}$ be the set of integers 
+  with cyclicity 2. If $S_2$ is empty we are done, so assume not.
+
+\begin{claim*}
+  $\#_{\ZZ}(P(P(x)) - x) \leq n$
+\end{claim*}
+\begin{proof}
+  If $|S_1| \neq 0$ then
+  \[ b_i - a_1 | P(b_i) - a_1 | b_i - a_1 \]
+  $\implies P(b_i) - a_1 = a_1 - b_i \implies P(b_i) = 2a_1 - b_i = 2a_j - b_i$
+  thus $S_1 = \{a_1\}$. But then clearly $P(x)-2a_1+x$ has all of 
+  $S_1 \cup S_2$. 
+  
+  If $|S_1| = 0$ then
+  \[ b_1 < \cdots < b_{k_2} \]
+  \[ b_i - b_1 | P(b_i) - P(b_1) | b_i - b_1 \]
+  Assume there exist $p > q > 1$ then 
+  $P(b_p) - P(b_1) = b_p - b_1$ and $P(b_q) - P(b_1) = b_1 - b_q$
+  $P(b_p) - P(b_q) = |b_p + b_q - 2b_1| = b_p - b_q$ which is absurd.
+  Therefore, $\{b_i\}$ are all either the roots of
+  $P(x)+x - (P(b_1)+b_1)$ or $P(x)-x - (P(b_1)-b_1)$.
+  So we are done by fundamental theorem.
+\setqed{$\blacksquare$}\end{proof} \setqed{$\square$}
+\hrule
+
+\bigskip
+\setqed{} \end{soln} \setqed{$\square$}
+\end{document}

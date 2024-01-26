@@ -1,0 +1,27 @@
+desc: <++>
+hardness: <++>
+source: Sophie App 2022/4
+tags: [2022-03, <++>]
+
+---
+
+Let $a,b,c,d \in \RR^{+}$ with $a+b+c+d = 4$. Prove that
+\[\frac 1{1+a+ab+abc} + \frac 1{1+b+bc+bcd} + \frac 1{1+c+cd+cda} + \frac 1{1+d+da+dab} \geq 1\]
+
+---
+
+By CS we have
+$$\lf{\cycsum \frac{1}{1+a+ab+abc}}\lf{\cycsum 1+a+ab+abc} \geq 4^2$$
+$$\lf{\cycsum \frac{1}{1+a+ab+abc}} \geq 16 \Bigg/\lf{\cycsum 1+a+ab+abc}$$
+So it is equivalent to proving 
+$$4+(a+b+c+d)+(ab+bc+cd+da)+(abc+bcd+cda+dab) \leq 16$$ with $a+b+c+d=4$, 
+$$\iff (ab+bc+cd+da)+(abc+bcd+cda+dab) \leq 8$$
+To finish note that 
+$(ab+bc+cd+da) = (a+c)(b+d) \leq \frac{(a+b+c+d)^2}{4} = 4$ 
+and
+\begin{align*}
+  abc+bcd+cda+dab &\leq ab(c+d) + cd(a+b) \\
+  &\leq \frac{1}{4} \left((a+b)^2(c+d) + (c+d)^2(a+b)\right) \\
+  &\leq \frac{4}{4} \cdot \left((a+b)(c+d)\right) \leq \frac{(a+b+c+d)^2}{4} = 4
+\end{align*}
+Add these 2 inequalities up to conclude. 

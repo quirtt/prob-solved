@@ -1,0 +1,36 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{20IMO5}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\newcommand\rad{\operatorname{rad}}
+\begin{soln}
+  I claim all $n$ work. Sort $\{a_i\}$ such that $a_1 \geq a_2 \geq \cdots \geq a_n$. WLOG assume $\gcd(a_1,a_2,\cdots,a_n) = 1$. 
+  It is clear that all of $a_i$ have to be odd because $(x+\frac12)^k$ 
+  is never an integer for $x,k \in \ZZ^{+}$
+  Choose the smallest $m$ such that $\rad(a_1) \nmid \rad(a_m)$
+  \[ \frac{a_1 + a_m}{2} = \sqrt[k]{a_{\sigma(1)} a_{\sigma(2)} 
+    \cdots a_{\sigma(k)}}\]
+  \begin{claim*}
+    There is no such $m$. 
+  \end{claim*}
+  \begin{proof}
+    Assume not, if $\exists \ i \ \text{such that } \sigma(i) < m$ then we are done, otherwise  
+    \[ a_m^{2k} \geq (a_{\sigma(1)}\cdots a_{\sigma(k)})^2 \geq a_1^k a_m^k\]
+    $a_m \geq a_1$ meaning $a_m = a_1$, a contradiction.  
+  \end{proof}
+  \hrule
+
+  \bigskip 
+  Therefore, $\rad(a_1)|a_t \ \forall \ t$ meaning $\rad(a_1) = 1 = a_1$, so $a_t = 1 \ \forall \ t$. 
+\end{soln}
+\end{document}

@@ -1,0 +1,21 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{16EGMO1}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+	
+	Simple. See that as $n$ is odd we will have $k$ such that $x_k \leq x_{k+1} \leq x_{k+2}$. 
+	But then $\min(x_i^2 + x_{i+1}^2) \leq x_k^2 + x_{k+1}^2 \leq 2 x_{k+1}x_{k+2} \leq \max(2x_{i+1}x_{i+2})$.
+
+\end{soln}
+\end{document}

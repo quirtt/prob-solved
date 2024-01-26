@@ -1,0 +1,50 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{18IMO5}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\newcommand{\vp}{\nu_p}
+\begin{soln}
+
+\raggedright
+\text{ }
+
+
+Call the thing $s(n)$ then $\vartriangle s(n) = \dfrac{a_{n+1}-a_n}{a_1} + \dfrac{a_n}{a_{n+1}}$
+\begin{claim*}
+	Define $\operatorname{rad}(n) = \displaystyle\prod_{p \text{ prime, } p|n} p$. Then $\operatorname{rad}(a_1a_2\cdots)$ is finite.
+\end{claim*}
+\begin{proof}
+	We have, 
+	\[ a_1 a_{n+1} \vartriangle s(n) = a_{n+1}(a_{n+1} - a_n) + a_1 a_n \]
+	Assume for the sake of contradiction the expression is infinite. Then, we can choose a prime $p$ such that $p|a_{n+1}, p\nmid a_n, p\nmid a_1$. Taking $\pmod{p}$, we have $a_1a_n \equiv 0 \pmod{p}$ which is clearly impossible.
+\end{proof}
+\begin{proposition*}
+	$\{\nu_p(a_n)\}_{n \geq N}$ is eventually constant.
+\end{proposition*}
+\begin{proof}
+	Note that 
+		\[\vp\lf{\dfrac{a_{n+1}-a_n}{a_1} + \dfrac{a_{n}}{a_{n+1}}} \geq \min\lf{\vp\lf{\dfrac{a_{n}}{a_{n+1}}}, \vp\lf{\dfrac{a_{n+1}-a_{n}}{a_1}}} \tag{$\spadesuit$} \]
+
+	If there exists an $n$ such that $\nu_p(a_n) < \nu_p(a_{n+1})$ then 
+	\[\vp(a_n) - \vp(a_{n+1}) = \vp(a_n) - \vp(a_1) \implies \vp(a_{n+1}) = \vp(a_1), \] 
+	because if one of the expressions is negative then both the expressions have to be equal as only then the complete expression ``can" become non-negative. Now choose the next $n'$ such that
+	\[\vp(a_1)=\vp(a_{n'}) > \vp(a_{n'+1})\]
+	the $\vp$ expression evaluates to \[\vp(a_{n'+1}) - \vp(a_{n'}) < 0, \] but this is not possible. Therefore, if there exists such $n$ then the sequence becomes constant. 
+
+	So, assume such $n$ doesnt exist, this means that $\vp(a_n) \geq \vp(a_{n+1}) \ \forall \ n \geq N $ but this is also not possible because a weakly decreasing whole number sequence ends up being constant.
+\end{proof}
+
+Because the $\vp$ sequence is eventually constant and there are only finitely many primes dividing $\operatorname{rad}(a_1a_2\cdots)$ thus we could just select $n = \displaystyle\max_{p|\operatorname{rad}(a_1a_2\cdots)}n_p$ where $n_p$ denotes the index where the sequence $\vp$ becomes constant.
+\end{soln}
+
+\end{document}

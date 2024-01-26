@@ -1,0 +1,24 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{13SLA4}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+\raggedright
+	Couldnt solve it myself. Loved the solution by @randomusername.
+
+	Represent $a_i$ by a bardiagram $P$ with $P = \{y = a_i; x \in [i-1,i]\}$. Reflect $P$ over line $y = x$ call this $P'$, now translate this such that its base sits on the line $x = -n$. 
+	Call the square $\{0 \leq y \leq n; n\leq x \leq n\} = S$
+	To finish notice that,
+	$$n^2 \geq [P \ \cup \ S] + [P' \ \cup \ S] = \sum_{i=1}^{n}\min(a_i, n) + \sum_{i=1}^{n}\max(a_i - n, 0) = \sum_{i=1}^{n}a_i$$ 
+\end{soln}
+\end{document}

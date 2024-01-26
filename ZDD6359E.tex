@@ -1,0 +1,51 @@
+desc: Continuous function
+hardness: <++>
+source: bagula continuous FE
+tags: [2022-02, FE]
+
+---
+
+Find all \textit{continuous} functions $f:\RR \to \RR$ such that
+\[
+  f(f(x)) = f(x) + 2x, \text{ for all } x \in \RR
+\]
+
+---
+  We claim $f(x) \equiv \{-x,2x\}$. Let $P(x)$ be the proposition.
+  Clearly, $f$ is injective. This readily implies monotonicity, which means $f$ is bijective. 
+  Therefore, $f^{-1}$ exists. 
+  Define $h(x) = f(x) - 2x$. So, 
+  \[f(f(x)) - 2f(x) = -(f(x) - 2x) = h(f(x)) = -h(x)\]
+  \[h(f(f(x))) = h(f(x) + 2x) = h(x)\]
+
+  \textbf{Case 1:} $f$ is decreasing
+
+  We will prove that $h(x)$ is injective. Assume not then there exist $a>b$
+  such that $f(a) -2a =f(b) - 2b \implies 0 > f(a) - f(b) = 2(a-b) > 0$, a contradiction. 
+
+  Thus $\boxed{f(x) = -x}$.
+
+\smallskip
+  \textbf{Case 2}: $f$ is increasing
+
+  \begin{claim*}
+  $f^{-1}(x)$ is increasing when $f(x)$ is increasing.  
+  \end{claim*}
+  \begin{proof}
+    
+  Assume not, 
+  then there exists $a > b$ with $f^{-1}(a) < f^{-1}(b)$ but this means 
+  $f(f^{-1}(a)) < f(f^{-1}(b)) \implies a < b$ which is a contradiction. Similarly
+  $f^{-2}(x)$ is also increasing.
+  \end{proof}
+\smallskip
+\hrule
+\smallskip
+  Now $P(f^{-2}(x))$ gives $x = f^{-1}(x) + 2f^{-2}(x)$.
+  $f^{-2}(x) = \frac{x-f^{-1}(x)}{2}$. 
+  As $f^{-2}$ is increasing and $f^{-2}(0) = 0$
+  \[\mid f^{-2}(x)\mid \leq \mid\frac{x}{2}\mid\]
+  \[\mid f^{-2n}(x)\mid \leq \mid\frac{f^{-2(n-1)}(x)}{2}\mid \leq \cdots \leq \mid\frac{x}{2^n}\mid\]
+  
+  Then using $h$'s continuity $h\displaystyle \left( \lim_{n \to \infty}f^{-2n}(x) \right) = h(x) = h(0) = 0$. 
+  This means $\boxed{f(x) = 2x}$.

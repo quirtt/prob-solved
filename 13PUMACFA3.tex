@@ -1,0 +1,20 @@
+desc: Local
+hardness: <++>
+source: PUMaC 2013 FA3
+tags: [2022-04, <++>]
+
+---
+
+Let $G$ be a graph and let $k$ be a positive integer.
+A $k$-\emph{star} is a set of $k$ edges with a common endpoint
+and a $k$-\emph{matching} is a set of $k$ edges such that
+no two have a common endpoint.
+Prove that if $G$ has more than $2(k-1)^2$ edges then
+it either has a $k$-star or a $k$-matching.
+
+---
+
+Assume FTSOC there is neither. Consider the maximal matching of size $m \leq k-1$ 
+then all the edges in the graph must be adjacent with 
+one of the edges in the matching. Bounding the number of edges
+\[E \leq 2m(k-2) + m \leq (k-1)(2k-3) < (k-1)^2 \]

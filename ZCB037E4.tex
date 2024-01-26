@@ -1,0 +1,32 @@
+desc: <++>
+hardness: <++>
+source: Sophie App 2022/7
+tags: [2022-03, <++>]
+
+---
+
+Find all two variable polynomials $P(x,y)$ such that for any real numbers $a,b,c$ we have 
+\[P(ab,c^2 -2) + P(ac,b^2-2) + P(bc,a^2-2) = 0\]
+
+---
+
+Note that this condition carries over to the complex numbers. Let $[a,b,c]$ be the proposition. Then, notice that $[0,0,0]$ gives $P(0,-2) = 0$ and now $[0,0,c]$ gives $P(0,c^2-2) = 0$.
+Therefore, the polynomial $P(0,y)$ is identically 0. Hence, $x \mid P(x,y)$. Now notice that
+\[
+\frac{P(ab,c^2-2)}{ab} + \frac{P(bc,a^2-2)}{bc} + \frac{P(ca,b^2-2)}{ca} \in \CC[x]
+\]
+\[
+\frac1{abc} \left( cP(ab,c^2 -2) + bP(ac,b^2-2) + aP(bc,a^2-2)\right) \in \CC[x]
+\]
+\[
+\frac1{abc} \left((b-c)P(ac,b^2-2) + (a-c)P(bc,a^2-2)\right) \in \CC[x]
+\]
+Let the assertion to this condition be $@(a,b,c)$. So, with $@(a,b,a)$
+\[
+\frac1{b} \left((b-a) \frac{P(a^2,b^2-2)}{a^2}\right) \in \CC[x]
+\]
+\[-\frac{a}{b} \frac{P(a^2,b^2-2)}{a^2} \in \CC[x]\]
+which means $b \mid P(a^2, b^2-2) \implies b \mid P(ac,b^2-2)$
+
+So, $abc | P(ac,b^2-2)$. Now defining $Q(ab,c^2-2) =
+\frac{P(ac,b^2-2)}{abc}$ we can repeat the same thing. So, $P \equiv 0$.

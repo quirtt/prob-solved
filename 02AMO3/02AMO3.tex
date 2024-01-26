@@ -1,0 +1,25 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{02AMO3}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+  
+We can guarantee $n$ real roots with $n$ points by IVT easily. Now, consider
+sequences $a_i, b_i$ with $a_i + b_i = 2f(i)$, such that $\operatorname{sgn}(a_i) = (-1)^i, \operatorname{sgn}(b_i) = (-1)^{i+1}$, 
+with $|a_i|, |b_i|$ being sufficiently large. Then interpolating on $\{a_1,\cdots,a_n\}$ we would get some $g_1$ with $\deg g_1= n-1$,
+to get a monic polynomial now  
+$g = (x-1)\cdots(x-n) + g_i$. We can do something similar for $h$.
+Now taking $f = \frac12 \cdot (g + h)$ finishes.
+
+\end{soln}
+\end{document}

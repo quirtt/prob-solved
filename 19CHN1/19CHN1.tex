@@ -1,0 +1,65 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{19CHN1}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+	
+\raggedright
+The answer is $-512 \le S \le 288$.
+288 is achieved at $a=b=4$ and $c=d=e=-1$ and 
+the -512 is achieved at $a=9$ and $b=c=d=e=-1$.
+Lets prove the inequalities now, 
+
+Let $x_1 = a+b$, $x_2 = c+d$, $x_3 = e+a$, $x_4 = b+c$, $x_5 = d+e$.
+Then the conditions become
+\[ \sum_i x_i = 10 \quad\text{ and }\quad
+	x_i + x_{i+1} \le 6 \; \forall i \]
+We also have $-2 \le x_i \le 8$ for each $i$,
+and $S = x_1 x_2 x_3 x_4 x_5$.
+Let $f(i) = \begin{cases}
+	0 & x_i \geq 0 \\
+	1 & \text{otherwise} \\
+\end{cases}
+$.
+$T = \cycsum f(i)$
+
+Lets do some casework.
+\begin{itemize}
+	\ii If $T = 0$
+	then $S \ge 0$ and $S \le 2^5 = 32$ by AM-GM.
+
+	\ii If $T=1$ $S \le 0$,
+	and $|S| \le 2 \cdot 3^2 \cdot 3^2 = 162$
+	by AM-GM (since $x_1 x_2 \le 9$, $x_3 x_4 \le 9$).
+
+	\ii If $T=2$, so $S \ge 0$.
+	Two of the nonnegative $x_i$'s must be adjacent,
+	say $x_1$ and $x_2$, thus $x_1 x_2 \le 9$.
+	So $|S| \le 2^2 \cdot 9 \cdot 8 = 288$.
+
+	Equality is achieved at $(3,3,-2,8,-2)$.
+
+	\ii If $T=3$, so $S \le 0$.
+	In that case, $|S| \le 2^3 \cdot 8^2 = 512$.
+
+	Equality is achieved at $(-2,-2,-2,8,8)$.
+
+	\ii If $T=4$, so $S \ge 0$.
+	Then $|S| \le 2^4 \cdot 8 = 128$.
+
+	\ii $T=5$ is not possible
+	since $\sum_i x_i = 10$.
+\end{itemize}
+Therefore, we deduce that \[ -512 \le S \le 288 \] as desired.
+\end{soln}
+\end{document}

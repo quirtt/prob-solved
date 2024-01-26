@@ -1,0 +1,59 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{19SLA5}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+\begin{soln}
+  We will prove the version where $x_i$ are complex numbers. Let the expression be $P/V$.
+  The denominator is the \textbf{Vandermonde Determinant}
+    \[ V = \prod_{i > j} (x_i - x_j) \]
+  Call $Q_i = V \cdot \prod_{j \neq i} \frac{1 - x_ix_j}{x_i - x_j}$
+\begin{claim*}
+    $P(x_1,x_2,\cdots,x_n)$ is divisible by the denominator $V$. 
+  \end{claim*}
+  \begin{proof}
+        So we would be done if we show $P = 0$ if $x_i = x_j$ for $i \neq j$.
+    
+    \textbf{Assume} $x_1 = x_k$, 
+    clearly $Q_2 = \cdots = Q_{k-1} = Q_{k+1} \cdots = Q_n = 0$,
+    \[ Q_1 = (-1)^{n-1}(1-x_1x_2)(1-x_1x_3)\cdots(1 - x_1x_n)\cdot \frac{V}{\prod_{j > 1} (x_j - x_1)}\]
+    \[ Q_k = (-1)^{n-k}\frac{\prod_{j} (1 - x_kx_j)}{1-x_j^2}\cdot \frac{V}{\prod_{j > k} (x_j - x_k) \prod_{j < k}(x_k - x_j)} \]
+    (There are no divide by 0 issues because we first divide and then equate the variables.) 
+    We get, $Q_k = (-1)^{k-1+k-2} \cdot Q_1$, which proves the claim. Other cases follow similarly.
+  \end{proof}
+  \hrule
+
+  \bigskip
+  \begin{claim*}
+    $P(x_1,x_2,\cdots,x_n) = C \cdot \prod_{i > j} (x_i - x_j)$, where $C \in \RR$ and is constant for
+    all variable $x_i$'s.
+  \end{claim*}
+  \begin{proof}
+    Assume $P$ is nonzero. We already know 
+    \[ P = V \cdot R \]
+    where $V$ is the denominator and $R \in \RR[X_1,X_2,\cdots,X_n]$. It is well known that $\deg_{x_i}(V) = n-1$.
+    Thus, $\deg_{x_i}(V \cdot R) \geq n-1$ while $\deg_{x_i}(P) \leq n-1$, because we can choose the terms
+    in lexicographic order of degrees. Equality holds only when
+    $\deg_{x_i}(P) = n-1$ and $\deg_{x_i}(R) = 0$
+  \end{proof}   
+  \hrule
+
+  \bigskip
+  \newpage
+  To finish we have to show this holds true for 1 set of values, take $x_{n+1} = 1$,
+  \[ \sum_{i,n+1} \prod_{i \neq j} \frac{1 - x_ix_j}{x_i - x_j} = 
+  (-1)^n\sum_{i,n}\prod_{i \neq j} \frac{1 - x_ix_j}{x_i-x_j} + 1 =
+  (-1)^n \cdot \frac{1 - (-1)^n}{2} + 1 = \frac{1+(-1)^n}{2}
+  \]
+  As the base case is trivial, we are done by induction. 
+\end{soln}
+\end{document}

@@ -1,0 +1,53 @@
+\documentclass[11pt]{scrartcl}
+
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[sexy]{evan}
+
+\title{14TSTST6}
+\author{Himadri Mandal}
+
+\begin{document}
+\maketitle
+
+\section{Solution}
+
+\raggedright
+\begin{soln}
+  Could not solve it but found it instructive. Let $\alpha$ be the first integer such that $p|ca^\alpha - db^\alpha$, $\lambda$ is the order of $a/b$.
+\[ \nu_p \left( c a^{\alpha + n\lambda} - d b^{\alpha + n \lambda} \right)
+	= \nu_p \left(
+		\left( \frac{a^\lambda}{b^\lambda} \right)^n
+		- \frac{d a^\alpha}{c b^{\alpha}} \right)
+\]
+to be constant.
+\begin{proposition*}
+	$x \equiv y \equiv 1 \pmod p$.
+	If the sequence $\nu_p\left( x^n - y \right)$ of positive integers
+	is nonconstant, then it is unbounded.
+\end{proposition*}
+
+\begin{claim*}
+	Suppose $m$ and $n$ are positive integers such that
+	\[ d = \nu_p(x^n-y) < \nu_p(x^m-y) = e. \]
+	Then there exists $\ell$ such that $\nu_p(x^\ell - y) \ge e + 1$.
+\end{claim*}
+\begin{proof}
+$\nu_p(x^m - x^n) = \nu_p\left( (x^m-y) - (x^n-y) \right) = d$
+\[ \nu_p(x^k-1) = e \]
+for $k = p^{e-d}|m-n|$.
+Now we set $x^k = p^e u + 1$ and $x^m = p^e v + y$. Thus we get for $1 \le r \le p-1$
+\begin{align*}
+	x^{kr+m}-y &= (p^e u + 1)^r \cdot (p^e v + y) - y \\
+	&= p^e \left( v + yu \cdot r \right) + p^{2e} \left( \dots \right).
+\end{align*}
+  Choosing $r$ with $r \equiv -\frac{v}{u} \pmod p$,
+we have $p^{e+1} \mid x^{kr+m} - y$,
+hence $\ell = kr+m$ proves the claim.
+\end{proof}
+
+This proves the proposition but as it was equivalent to the problem, we are done.
+\end{soln}
+
+\end{document}

@@ -1,0 +1,38 @@
+desc: <++>
+hardness: <++>
+source: IMO 1999 2
+tags: [2022-03, local, algebraic combi]
+
+---
+
+Find the least constant $C$ such that
+for any integer $n > 1$ the inequality
+\[\sum_{1 \le i < j \le n} x_i x_j (x_i^2 + x_j^2)
+	\le C \left( \sum_{1 \le i \le n} x_i \right)^4\]
+holds for all real numbers $x_1$, \dots, $x_n \ge 0$.
+Determine the cases of equality.
+
+---
+We will do smoothing. The motivation essentially comes 
+from the sum on the RHS and that the equality cases are
+$(0,0,0,...,0,x,x)$ with $C = \frac{1}{8}$.
+
+Because everything is symmetric WLOG assume $x_i \leq x_j \iff
+i < j$. Now we will smoothen $(x_1,x_2,\cdots, x_n) \to (0,x_1+x_2,\cdots,x_n)$,
+which keeps the sum constant. So now the change is
+\begin{align*}
+  \geq (x_1+x_2)&x_3((x_1+x_2)^2 + x_3^2) - x_1x_2(x_1^2+x_2^2) - 
+  x_1x_3(x_1^2+x_3^2) - x_2x_3(x_2^2+x_3^2) \\
+  &= x_1x_3((x_1+x_2)^2-x_1^2) + x_2x_3((x_1+x_2)^2-x_2^2) - x_1x_2(x_1^2+x_2^2) \\
+  &= x_1x_3(x_2^2 + 2x_1x_2) + x_2x_3(x_1^2+2x_1x_2) - x_1x_2(x_1^2+x_2^2) \\
+  &\geq x_1x_2(x_2^2 + x_1^2) - x_1x_2(x_1^2+x_2^2) + 2x_1^2x_2x_3 + 2x_1x_2^2x_3 \geq 0
+\end{align*}
+Thus after smoothing the smallest two variables the sum increases
+and eventually we only have 2 variables let them be $x,y$. 
+\[
+  \sum_{1 \leq i \leq j \leq n} x_ix_j(x_i^2+x_j^2) \leq xy(x^2+y^2) \overset{?}{\leq} C \left(\sum_{1 \leq i \leq n} x_i\right)^4 = C (x+y)^4
+\]
+We claim $C = \frac{1}{8}$ is the best bound, but this is proved by
+$(x+y)^4 - 8(xy^3+x^3y) = (x-y)^4 \geq 0$. This finishes because this expression
+itself is the $n = 2$ case of LHS. Equality case is forced by the
+inequality chase.
